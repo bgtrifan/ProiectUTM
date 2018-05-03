@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Catalog Online</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="adprof" type="bob.home.catalogUTMnou.model.Profesor"*/-->
+
+<br><br>
+<h1 style="margin-left: 50px">Pagina Profesor</h1>
+<br><br>
+<form th:object="${adprof}" method="post" th:action="@{'/saveprof'}">
+    <input type ="hidden" name="id" th:field="*{id}"/>
+    <div class="form-group">
+        <div class="col-md-5 form-group">
+
+        <label style="margin-left: 50px">Nume</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="nume" placeholder="Nume" th:field="*{nume}">
+        <label style="margin-left: 50px">Prenume</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="prenume" placeholder="Prenumele" th:field="*{prenume}">
+        <label style="margin-left: 50px">CNP</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="CNP" placeholder="CNP" th:field="*{cnp}">
+        <label style="margin-left: 50px">Email</label>
+        <input style="margin-left: 50px" type="email" class="form-control" name="email" placeholder="E-mail" th:field="*{email}">
+        <label style="margin-left: 50px">Telefon</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="telefon" placeholder="Telefonul" th:field="*{telefon}">
+        <label style="margin-left: 50px">Username</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="username" placeholder="Username" th:field="*{username}">
+            <br>
+            <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+        </div>
+    </div>
+</form>
+</body>
+</html>

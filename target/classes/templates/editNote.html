@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Catalog Online</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="note" type="bob.home.catalogUTMnou.model.Note"*/-->
+<!--/*@thymesVar id="grupa" type="bob.home.catalogUTMnou.model.Grupa"*/-->
+<!--/*@thymesVar id="disc" type="bob.home.catalogUTMnou.model.Disciplina"*/-->
+<!--/*@thymesVar id="studenti" type="bob.home.catalogUTMnou.model.Student"*/-->
+<br><br>
+<h1 style="margin-left: 50px">Editare note</h1>
+<br><br>
+<form th:object="${note}" method="post" th:action="@{'/savenote'}">
+    <input type ="hidden" name="id" th:field="*{id}"/>
+    <div class="form-group">
+        <div class="col-md-5 form-group">
+
+
+        <label style="margin-left: 50px">Nota obtinuta</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="nota" placeholder="Introduceti nota" th:field="*{nota}">
+        <label style="margin-left: 50px">Status</label>
+        <select style="margin-left: 50px" type="text" class="form-control" name="anscolar" placeholder="Introduceti status" th:field="*{status}">
+            <option th:each="statusNotaVal :${T(bob.home.catalogUTMnou.model.StatusNota).values()}" th:value="${statusNotaVal.name()}" th:text="${statusNotaVal.name()}">Status</option>
+        </select>
+            <br>
+            <input style="margin-left: 50px" type="submit" class="btn btn-primary btn-lg" value ="Salveaza"/>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Catalog UTM</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="orar" type="bob.home.catalogUTMnou.model.Orar"*/-->
+<!--/*@thymesVar id="filtruOrar" type="bob.home.catalogUTMnou.model.FiltruOrar"*/-->
+<br><br>
+<h1 style="margin-left: 50px">Orar</h1>
+
+<br>
+
+<div class="form-group">
+    <div class="row" th:object="${filtruOrar}" th:action="@{'/cautaorar'}" method="post">
+        <div class="col-md-3 form-group" style="margin-left: 50px">
+            <label>An Scolar:</label>
+            <input type="text" class="form-control" th:field="*{anScolar}"/>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>An:</label>
+            <input type="text" class="form-control" th:field="*{an}"/>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Semestru:</label>
+            <input type="text" class="form-control" th:field="*{semestru}"/>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-left: 50px">Cauta</button>
+    </div>
+</div>
+
+<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adorar'" style="margin-left: 50px">Adauga..</button></td>
+<br><br>
+
+<table class="table">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Grupa</th>
+        <th scope="col">Zi</th>
+        <th scope="col">Interval orar</th>
+        <th scope="col">Disciplina</th>
+        <th scope="col">Profesor</th>
+
+
+
+    </thead>
+    <tbody>
+    <tr th:each="ore: ${orar}">
+        <td th:text="${ore.id}">123</td>
+        <td th:text="${ore.grupa.numeGrupa}">Grupa</td>
+        <td th:text="${ore.zi}">Zi</td>
+        <td th:text="${ore.intervalOrar}">Interval</td>
+        <td th:text="${ore.disciplina.denumire}">Disciplina</td>
+        <td th:text="${(ore.profesor.nume + ' ' +ore.profesor.prenume)}">Profesor</td>
+
+        <td><a href = "/edorar" th:href="@{/editorar(id=${orar.id})}">Edit</a></td>
+        <td><a href = "/deleteorar" th:href="@{/deleteorar(id=${orar.id})}" onclick="return confirm('Sure?')">Delete</a></td>
+
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!--<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugastudent'" style="margin-left: 50px">Adauga student</button></td>-->
+    <!--<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugadisciplina'" style="margin-left: 50px">Adauga disciplina</button></td>-->
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+</div>
+</body>
+</html>

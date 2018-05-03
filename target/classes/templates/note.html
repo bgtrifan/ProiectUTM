@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Catalog UTM</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="note" type="bob.home.catalogUTMnou.model.Note"*/-->
+
+<br><br>
+<h1 style="margin-left: 50px">Note</h1>
+
+<br>
+<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adnote'" style="margin-left: 50px">Adauga..</button></td>
+<br><br>
+
+<table class="table">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">An Scolar</th>
+        <th scope="col">An</th>
+        <th scope="col">Semestru</th>
+        <th scope="col">Disciplina</th>
+        <th scope="col">Student</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Status</th>
+        <th scope="col">Credite</th>
+    </thead>
+    <tbody>
+    <tr th:each="nota: ${note}">
+        <td th:text="${nota.id}">123</td>
+        <td th:text="${nota.anScolar}">Grupa</td>
+        <td th:text="${nota.an}">Grupa</td>
+        <td th:text="${nota.semestru}">Ora</td>
+        <td th:text="${nota.disciplina.denumire}">Disciplina</td>
+        <td th:text="${nota.student.nume}">Data</td>
+        <td th:text="${nota.nota}">Ora</td>
+        <td th:text="${nota.status}">Ora</td>
+        <td th:text="${nota.crediteObtinute}">Ora</td>
+
+
+        <td><a href = "/ednote" th:href="@{/ednote(id=${nota.id})}">Edit</a></td>
+        <td><a href = "/deletenote" th:href="@{/deletenote(id=${nota.id})}" onclick="return confirm('Sure?')">Delete</a></td>
+
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!--<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugastudent'" style="margin-left: 50px">Adauga student</button></td>-->
+    <!--<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugadisciplina'" style="margin-left: 50px">Adauga disciplina</button></td>-->
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+</div>
+</body>
+</html>

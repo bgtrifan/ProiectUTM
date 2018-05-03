@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Catalog UTM</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="filtruDisciplina" type="bob.home.catalogUTMnou.model.FiltruDisciplina"*/-->
+<!--/*@thymesVar id="discipline" type="bob.home.catalogUTMnou.model.Disciplina"*/-->
+
+
+<br><br>
+<h1 style="margin-left: 50px">Discipline</h1>
+<br>
+<div>
+    <form class="form-horizontal" th:object="${filtruDisciplina}" th:action="@{'/cautadisc'}" method="post">
+        <input type="text" class="form-control" style="margin-left: 50px" placeholder="Introduceti An" th:field="*{an}">
+        <br>
+        <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-left: 50px">Cauta</button>
+    </form>
+</div>
+<br>
+
+<br>
+<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/addisc'" style="margin-left: 50px">Adauga..</button></td>
+<br><br>
+
+<table class="table">
+    <thead>
+    <th scope="col">#</th>
+    <th scope="col">Denumire</th>
+    <th scope="col">Nr credite</th>
+    <th scope="col">Facultate</th>
+    <th scope="col">An</th>
+    <th scope="col">Semestru</th>
+
+    </thead>
+    <tbody>
+    <tr th:each="disc: ${discipline}">
+        <td th:text="${disc.id}">123</td>
+        <td th:text="${disc.denumire}">NumeDisciplina</td>
+        <td th:text="${disc.nrCredite}">Credite</td>
+        <td th:text="${disc.facultate.numeFacultate}">Facultate</td>
+        <td th:text="${disc.an}">An</td>
+        <td th:text="${disc.semestru}">Semestru</td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+</div>
+
+</body>
+
+</body>
+</html>
+
+<!--<select style="margin-left: 50px" type="text" class="form-control" name="facultate" placeholder="Introduceti facultatea" th:field="*{facultate}">-->
+<!--<option th:each="fac :${facs}" th:value="${fac.id}" th:text="${fac.numeFacultate}">Fac</option>-->
+<!--</select>-->
+<!--</div>-->
+<!--<div>-->
