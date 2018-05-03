@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Catalog UTM</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="note" type="bob.home.catalogUTMnou.model.Note"*/-->
+
+<br><br>
+<h1 style="margin-left: 50px">Vizualizare Note</h1>
+<div class="form-group">
+    <div class="row" th:object="${filtruNote}" th:action="@{'/cautanote'}" method="post">
+        <div class="col-md-3 form-group" style="margin-left: 50px">
+            <label>An Scolar:</label>
+            <input type="text" class="form-control" th:field="*{anScolar}"/>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>An:</label>
+            <input type="text" class="form-control" th:field="*{an}"/>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Semestru:</label>
+            <input type="text" class="form-control" th:field="*{semestru}"/>
+        </div>
+        <br>
+        <div class="col-md-3 form-group" style="margin-left: 50px">
+            <label>Disciplina:</label>
+            <input type="text" class="form-control" th:field="*{disciplina}"/>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Grupa:</label>
+            <input type="text" class="form-control" th:field="*{grupa}"/>
+        </div>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-left: 50px">Cauta</button>
+    </div>
+</div>
+<br>
+
+<table class="table">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Disciplina</th>
+        <th scope="col">Student</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Status</th>
+        <th scope="col">Credite</th>
+    </thead>
+    <tbody>
+    <tr th:each="nota: ${note}">
+        <td th:text="${nota.id}">123</td>
+        <td th:text="${nota.disciplina.denumire}">Disciplina</td>
+        <td th:text="${nota.student.nume}">Data</td>
+        <td th:text="${nota.nota}">Ora</td>
+        <td th:text="${nota.status}">Ora</td>
+        <td th:text="${nota.crediteObtinute}">Ora</td>
+
+        <td><a href = "/ednote" th:href="@{/ednote(id=${nota.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!--<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugastudent'" style="margin-left: 50px">Adauga student</button></td>-->
+    <!--<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugadisciplina'" style="margin-left: 50px">Adauga disciplina</button></td>-->
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+</div>
+</body>
+</html>

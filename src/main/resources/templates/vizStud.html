@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Catalog Online</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="adstud" type="bob.home.catalogUTMnou.model.Student"*/-->
+<!--/*@thymesVar id="facs" type="bob.home.catalogUTMnou.model.Facultate"*/-->
+<br><br>
+<h1 style="margin-left: 50px">Pagina Student</h1>
+<br><br>
+<form th:object="${adstud}">
+    <input type ="hidden" name="id" th:field="*{id}"/>
+    <div class="form-row" style="margin-left: 50px">
+        <div class="form-group col-md-6">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Nume</label>
+                <input  type="text" class="form-control" name="nume" placeholder="Numele stuentului" th:field="*{nume}">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Prenume</label>
+                <input type="text" class="form-control" name="prenume" placeholder="Prenumele" th:field="*{prenume}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>CNP</label>
+                <input type="text" class="form-control" name="CNP" placeholder="CNP" th:field="*{cnp}">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Adresa</label>
+                <input type="text" class="form-control" name="adresa" placeholder="Adresa" th:field="*{adresa}">
+            </div>
+        </div>
+
+       <div class="form-row">
+           <div class="form-group col-md-6">
+               <label>Telefon</label>
+               <input type="text" class="form-control" name="telefon" placeholder="Telefon" th:field="*{telefon}">
+           </div>
+           <div class="form-group col-md-6">
+               <label>Email</label>
+               <input type="email" class="form-control" name="email" placeholder="E-mail" th:field="*{email}">
+           </div>
+       </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Data nastere</label>
+                <input type="text" class="form-control" name="datanastere" placeholder="Data nasterii" th:field="*{dataNastere}">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Facultate</label>
+                <select type="text" class="form-control" name="facultate" placeholder="Facultatea" th:field="*{facultate}">
+                    <option th:each="fac :${facs}" th:value="${fac.id}" th:text="${fac.numeFacultate}">     Facultatea    </option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label>An</label>
+                <input type="text" class="form-control" name="an" placeholder="Anul" th:field="*{an}">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Promotie</label>
+                <input type="text" class="form-control" name="promotie" placeholder="Promotia" th:field="*{promotie}">
+            </div>
+        </div>
+        <br>
+            <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'">Meniul principal</button></td>
+
+        </div>
+    </div>
+
+</form>
+</body>
+</html>

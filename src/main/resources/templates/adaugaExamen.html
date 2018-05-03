@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Catalog Online</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="examene" type="bob.home.catalogUTMnou.model.Examene"*/-->
+<!--/*@thymesVar id="grupa" type="bob.home.catalogUTMnou.model.Grupa"*/-->
+<!--/*@thymesVar id="disc" type="bob.home.catalogUTMnou.model.Disciplina"*/-->
+<!--/*@thymesVar id="prof" type="bob.home.catalogUTMnou.model.Profesor"*/-->
+
+<br><br>
+<h1 style="margin-left: 50px">Adaugare examen</h1>
+<br><br>
+<form th:object="${examene}" method="post" th:action="@{'/saveexamen'}">
+    <input type ="hidden" name="id" th:field="*{id}"/>
+    <div class="form-group">
+        <div class="col-md-5 form-group">
+
+        <label style="margin-left: 50px">Grupa</label>
+        <select style="margin-left: 50px" type="text" class="form-control" name="grupa" placeholder="Introduceti grupa" th:field="*{grupa}">
+            <option th:each="grp :${grupa}" th:value="${grp.id}" th:text="${grp.numeGrupa}">Grupa</option>
+        </select>
+        <label style="margin-left: 50px">An scolar</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="anscolar" placeholder="Introduceti anul scolar" th:field="*{anScolar}">
+        <label style="margin-left: 50px">Zi</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="zi" placeholder="Introduceti data" th:field="*{data}">
+        <label style="margin-left: 50px">Interval orar</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="semestru" placeholder="Introduceti intervalul orar" th:field="*{ora}">
+        <label style="margin-left: 50px">An</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="anscolar" placeholder="Introduceti anul" th:field="*{an}">
+        <label style="margin-left: 50px">Semestru</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="semestru" placeholder="Introduceti semestrul" th:field="*{semestru}">
+        <label style="margin-left: 50px">Disciplina</label>
+        <select style="margin-left: 50px" type="text" class="form-control" name="disciplina" placeholder="Introduceti disciplina" th:field="*{disciplina}">
+            <option th:each="disciplina :${disc}" th:value="${disciplina.id}" th:text="${disciplina.denumire}">Disciplina</option>
+        </select>
+        <label style="margin-left: 50px">Profesor</label>
+        <select style="margin-left: 50px" type="text" class="form-control" name="profesor" placeholder="Introduceti profesor" th:field="*{profesor}">
+            <option th:each="profesor :${prof}" th:value="${profesor.id}" th:text="${(profesor.nume + ' ' + profesor.prenume)}">Profesor</option>
+        </select>
+            <br>
+            <input style="margin-left: 50px" type="submit" class="btn btn-primary btn-lg" value ="Salveaza"/>
+        </div>
+
+    </div>
+</form>
+</body>
+</html>

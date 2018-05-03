@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Catalog UTM</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="grupa" type="bob.home.catalogUTMnou.model.Grupa"*/-->
+
+<br><br>
+<h1 style="margin-left: 50px">Grupe</h1>
+
+<br>
+<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adgrupa'" style="margin-left: 50px">Adauga..</button></td>
+<br><br>
+
+<table class="table">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Facultate</th>
+        <th scope="col">Nume</th>
+        <th scope="col">An start</th>
+        <th scope="col">Semestru</th>
+        <th scope="col">An scolar</th>
+
+
+
+    </thead>
+    <tbody>
+    <tr th:each="grupe: ${grupa}">
+        <td th:text="${grupe.id}">123</td>
+        <td th:text="${grupe.facultate.numeFacultate}">NumeFacultate</td>
+        <td th:text="${grupe.numeGrupa}">Nume</td>
+        <td th:text="${grupe.anStart}">An</td>
+        <td th:text="${grupe.semestru}">Semestru</td>
+        <td th:text="${grupe.anStart}">An scolar</td>
+
+        <td><a href = "/edgrupa" th:href="@{/edgrupa(id=${grupe.id})}">Edit</a></td>
+        <td><a href = "/deletegrupa" th:href="@{/deletegrupa(id=${grupe.id})}" onclick="return confirm('Sure?')">Delete</a></td>
+
+    </tr>
+    </tbody>
+</table>
+<div>
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adaugastudent'" style="margin-left: 50px">Adauga student</button></td>
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/addiscgrp'" style="margin-left: 50px">Adauga disciplina</button></td>
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+</div>
+</body>
+</html>

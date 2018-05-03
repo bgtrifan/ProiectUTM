@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Catalog Online</title>
+</head>
+<body style="background-color:azure">
+<!--/*@thymesVar id="filtru" type="bob.home.catalogUTMnou.model.Filtru"*/-->
+<!--/*@thymesVar id="profesor" type="bob.home.catalogUTMnou.model.Profesor"*/-->
+
+<br><br>
+<h1 style="margin-left: 50px">Profesori</h1>
+<br>
+
+<div class="form-group" th:object="${filtru}" th:action="@{'/cautaprof'}" method="post">
+    <div class="row">
+        <div class="col-md-3 form-group" style="margin-left: 50px">
+            <label>CNP:</label>
+            <input type="text" class="form-control" th:field="*{cnp}"/>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Nume:</label>
+            <input type="text" class="form-control" th:field="*{nume}"/>
+        </div>
+
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-left: 50px">Cauta</button>
+    </div>
+</div>
+
+<br>
+<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/adprof'" style="margin-left: 50px">Adauga..</button></td>
+<br><br>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Prenume</th>
+        <th scope="col">Nume</th>
+        <th scope="col">CNP</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Parola</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prof: ${profesor}">
+        <td th:text="${prof.id}">123</td>
+        <td th:text="${prof.nume}">Nume</td>
+        <td th:text="${prof.prenume}">Prenume</td>
+        <td th:text="${prof.cnp}">CNP</td>
+        <td th:text="${prof.telefon}">Tel</td>
+        <td th:text="${prof.email}">Email</td>
+        <td th:text="${prof.username}">Username</td>
+        <td th:text="${prof.parola}">Parola</td>
+        <td><a href = "/edprof" th:href="@{/edprof(id=${prof.id})}">Edit</a></td>
+        <td><a href = "/deleteprof" th:href="@{/deleteprof(id=${prof.id})}" onclick="return confirm('Sure?')">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='/main'" style="margin-left: 50px">Meniul principal</button></td>
+
+</body>
+</html>

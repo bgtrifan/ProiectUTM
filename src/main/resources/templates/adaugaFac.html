@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8"/>
+    <title>Catalog Online</title>
+</head>
+<body style="background-color:azure">
+<br><br>
+<h1 style="margin-left: 50px">Adaugare Facultati</h1>
+<br><br>
+<form method="post" action="/savefac">
+    <input type ="hidden" name="id" th:value="${adaugaFac.id}"/>
+    <div class="form-group">
+        <div class="col-md-5 form-group">
+
+        <label style="margin-left: 50px">Nume Facultate</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="numeFacultate" placeholder="Introduceti numele facultatii" th:value="${adaugaFac.numeFacultate}">
+        <label style="margin-left: 50px">Forma Invatamant</label>
+        <input style="margin-left: 50px" type="text" class="form-control" name="formaInvatamant" placeholder="Introduceti forma de invatamant" th:value="${adaugaFac.formaInvatamant}">
+        <br>
+            <input style="margin-left: 50px" type="submit" class="btn btn-primary btn-lg" value ="Salveaza"/>
+        </div>
+        </div>
+</body>
+</html>
